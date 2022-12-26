@@ -45,3 +45,17 @@ for item in tmp.find_all('h3'):
     restaurant_list.append(item.text[3:].strip('\xa0'))
     
 restaurant_list
+
+money_list = []
+address_list = []
+for item in tmp.find_all('p'):
+    sample_text = item.get_text()
+    idx_of_dollar =sample_text.index('$')
+    money = sample_text[idx_of_dollar:].split(' ')[0]
+    dummy_address = sample_text[idx_of_dollar + len(money)+1:]
+    if dummy_address.split(' ')[0]  == 'for':
+        dummy_address = dummy_address[dummy_address.index('. ')+2:]
+        money_list.append(money)
+        address_list.append(dummy_address)
+
+
