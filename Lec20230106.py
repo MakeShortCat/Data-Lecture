@@ -50,4 +50,3 @@ for i, gen in enumerate(movies.genres):
     df_movies.iloc[i, df_movies.columns.get_indexer(gen.split('|'))] = 1
     
     
-    
